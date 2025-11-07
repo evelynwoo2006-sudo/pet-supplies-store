@@ -1,0 +1,42 @@
+
+/* Minimal, clean responsive styles */
+:root{
+  --accent:#ffb703;
+  --muted:#6b6b6b;
+  --bg:#fffdf7;
+  --card:#ffffff;
+  --radius:10px;
+  --container:1100px;
+}
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#222; -webkit-font-smoothing:antialiased;}
+a{color:inherit}
+.container{max-width:var(--container); margin:0 auto; padding:24px;}
+.site-header{background:var(--accent);}
+.header-inner{display:flex; justify-content:space-between; align-items:center; padding:12px 24px;}
+.brand a{font-weight:700; font-size:20px; text-decoration:none;}
+.main-nav a{margin-left:14px; text-decoration:none; font-weight:600; color:#2b2b2b;}
+.hero{display:flex; gap:30px; align-items:center; padding:40px 24px;}
+.hero-content h1{font-size:34px; margin:0 0 12px;}
+.hero p{margin:0 0 18px; color:var(--muted);}
+.btn{background:#0a9396; color:white; padding:10px 16px; border-radius:8px; text-decoration:none; display:inline-block; font-weight:700;}
+.btn.ghost{background:transparent; border:2px solid rgba(0,0,0,0.06); color: #333; margin-left:8px;}
+.hero-image img{max-width:420px; width:100%; height:auto; display:block; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.08);}
+
+.grid{display:grid; gap:18px; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); margin-top:18px;}
+.featured .card, .card{background:var(--card); padding:18px; border-radius:var(--radius); box-shadow:0 6px 18px rgba(0,0,0,0.04);}
+.card h3{margin:0 0 8px;}
+.price{font-weight:800; margin:12px 0; font-size:20px; color:#0a9396;}
+.product-card img{width:100%; border-radius:8px; display:block; margin-bottom:10px;}
+.controls{display:flex; gap:12px; margin:12px 0 6px;}
+.controls input, .controls select{padding:10px; border-radius:8px; border:1px solid #e6e6e6; flex:1;}
+
+.product-card{padding:12px; text-align:left;}
+.product-card h3{margin:6px 0;}
+.detail-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start; margin-top:18px;}
+.image-wrap img{width:100%; border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,0.06);}
+.actions{margin-top:12px; display:flex; gap:10px; align-items:center;}
+.back{display:inline-block; margin-top:12px; color:var(--muted); text-decoration:none;}
+
+.site-footer{background:#f1f1f1; margin-top:40px; padding:18px 0; text-align:center; color:#555;}
+@media(max-width:800px){ .hero{flex-direction:column-reverse; text-align:center} .detail-grid{grid-template-columns:1fr} .main-nav{display:none} }

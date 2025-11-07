@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pawfect Pets — Product</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand"><a href="index.html">🐾 Pawfect Pets</a></div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="#" id="cart-link">Cart (<span id="cart-count">0</span>)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container product-detail">
+    <a href="products.html" class="back">← Back to products</a>
+    <div class="detail-grid">
+      <div class="image-wrap">
+        <img id="product-image" src="" alt="Product image">
+      </div>
+      <div class="detail-info">
+        <h1 id="product-title">Product title</h1>
+        <p id="product-desc">Description</p>
+        <p class="price" id="product-price">$0.00</p>
+        <div class="actions">
+          <input type="number" id="qty" min="1" value="1" style="width:80px;padding:6px;border-radius:6px;border:1px solid #ddd;">
+          <button id="add-cart" class="btn">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Pawfect Pets • contact@pawfectpets.example</p>
+    </div>
+  </footer>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/site.js"></script>
+  <script>
+    // Render product by id from query param ?id=slug
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id');
+    const prod = products.find(p => p.id === id) || products[0];
+    document.getElementById('product-title').textContent = prod.name;
+    document.getElementById('product-desc').textContent = prod.description;
+    document.getElementById('product-price').textContent = '$' + prod.price.toFixed(2);
+    document.getElementById('product-image').src = prod.image;
+    document.getElementById('add-cart').addEventListener('click', () => {
+      const qty = Math.max(1, parseInt(document.getElementById('qty').value || 1));
+      addToCart(prod.id, qty);
+      alert('Added to cart');
+      updateCartCount();
+    });
+  </script>
+</body>
+</html>
